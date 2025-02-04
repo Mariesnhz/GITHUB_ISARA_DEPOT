@@ -1,0 +1,91 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+---
+title: "Rapport test Rmarkdown"
+author: "Sanchez Marie-sarah"
+date: "04 février 2025"
+output:
+  html_document:
+  code_folding: hide
+fig_caption: yes
+number_sections: yes
+toc: yes
+toc_depth: 3
+toc_float:
+  collapsed: true
+smooth_scroll: true
+
+bibliography: bib/biblio2.bib
+csl: "bib/isara-iso-690.csl"
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+```
+
+# Introduction
+Je suis actuellement en 4ème année à l'Isara et dans le cadre de mon semestre j'ai choisi le module **OPEN** qui dure 2 semaines.
+J'ai décidé de choisir ce module afin de me familiariser avec les outils informatiques car je suis persuadée que cela m'apportera dans mon futur.
+Je contunu portera sur l'explication d'un graphique que j'ai réaliser ce matin grâce à l'utilisation de ***ggplot2*** [@meteoblue_simulation_2023]
+
+
+# Les données
+
+Les données proviennent de **Rstudio**, avec une bibliothèque integrée au logiciel (utilisation de ***ggplot2*** pour réaliser des graphiques) 
+
+```{r echo=FALSE}
+library(knitr)
+kable(head(CO2))
+```
+
+## Imports du graphique de concentration vs Uptake
+
+Voici un graphique illustrant la relation entre la concentration de CO2 (`conc`) et l'uptake (`uptake`), en fonction du traitement (`Treatment`).
+
+```{r imports, echo=TRUE, eval=TRUE}
+library(ggplot2)
+
+ggplot(CO2, aes(conc, uptake, colour = Treatment)) +
+  geom_point(size = 3, alpha = 0.5) +
+  geom_smooth(color = "pink")
+  
+```
+
+
+## Présentation et objectifs
+
+Nous disposons de données sur R avec une **library** de **ggplot2**, j'ai choisi les données CO2, cela explique :
+  
+- Axes :
+L'axe des x : `conc` (Concentration de CO2)
+l'axe des y : `uptake` (Absorption ou uptake de CO2)
+
+- Points :
+`geom_point(size = 3, alpha = 0.5)` : Les points sur le graphique représentent les observations des données. Chaque point montre la relation entre la concentration de CO2 (conc) et l'uptake (absorption de CO2), et les couleurs des points indiquent les différents traitements appliqués
+
+- Courbe :
+`geom_smooth(color = "pink")` : La courbe en couleur rose est ajoutée pour montrer la tendance générale de la relation entre la concentration de CO2 et l'uptake. Elle indique comment l'uptake évolue avec l'augmentation de la concentration de CO2.
+
+- Couleur selon le traitement :
+`colour = Treatment` : colore les points en fonction du traitement ce qui permet de visualiser comment la relation entre conc et uptake diffère selon le type de traitement (par exemple, chilled vs nonchilled, ou les différents types de plantes).
+
+
+# Analyses
+
+On peut voir comment l'uptake du CO2 évolue avec l'augmentation de la concentration de CO2. En fonction des couleurs des points on peut comparer les effets de différents traitements (comme chilled vs nonchilled). Cela permet de voir si un traitement particulier a un impact plus important sur l'uptake à des concentrations données de CO2.
+
+
+
+# Interpretations et Conclusion
+  
+Après avoir réaliser ce graphique, je peux en conclure que cet outil est très utile et intuitif, ce n'est pas le code le plus long pour faire un schéma, mais il est compéhensible et synthétique.
+
+
+## Bibliographie
+
+Liste des publications : 
