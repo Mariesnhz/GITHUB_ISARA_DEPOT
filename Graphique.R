@@ -11,5 +11,7 @@ names(CO2)
 ggplot(CO2, aes(conc, uptake,
              colour = Treatment))+
   geom_point(size = 3, alpha = 0.5)+
-  geom_smooth()
+  geom_smooth(color = "pink")
 
+
+  
